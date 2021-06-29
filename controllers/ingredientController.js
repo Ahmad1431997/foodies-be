@@ -1,4 +1,5 @@
-const Ingredient = require("../db/models");
+const {Ingredient} = require("../db/models");
+
 
 
 

@@ -34,6 +34,7 @@ exports.ingredientCreate = async (req, res, next) => {
     const foundCategory = await Category.findByPk(req.params.categoryId);
     // console.log(foundCategory)
     if (foundCategory) {
+        req.body.categoryId = foundCategory.id //this is to make a forienKey
       const newIngredient = await Ingredient.create(req.body);
       console.log(newIngredient)
       res.status(201).json(newIngredient);
