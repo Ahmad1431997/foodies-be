@@ -17,13 +17,13 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Ingredient.associate = (models) => {
-    models.Shop.hasMany(Ingredient, {
+    models.Category.hasMany(Ingredient, {
       foreignKey: "categoryId",
       allowNull: false,
       as: "ingredients",
     });
 
-    Ingredient.belongsTo(models.Shop, {
+    Ingredient.belongsTo(models.Category, {
       foreignKey: "categoryId",
     });
   };
