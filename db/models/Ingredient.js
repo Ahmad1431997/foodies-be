@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     models.Shop.hasMany(Ingredient, {
       foreignKey: "categoryId",
       allowNull: false,
-      as: "Ingredients",
+      as: "ingredients",
     });
 
     Ingredient.belongsTo(models.Shop, {
