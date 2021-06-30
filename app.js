@@ -1,6 +1,7 @@
 const express = require("express");
 const ingredientsRoutes= require("./routes/ingredientsRoutes")
 const categoriesRoutes=require("./routes/categoriesRoutes")
+const path = require("path");
 // const db = require("./db/models");
 const cors = require("cors");
 const app = express();
@@ -10,7 +11,7 @@ app.use(cors());
 app.use("/ingredients", ingredientsRoutes);
 app.use("/categories", categoriesRoutes);
 
-
+app.use("/media",express.static(path.join(__dirname,"media")))
 
 
 //error middleWare
@@ -24,6 +25,10 @@ app.use((err, req, res, next) => {
 app.use((req, res, next) => {
   res.status(404).json({ message: "Path not found" });
 });
+
+
+
+
 
 // db.sequelize.authenticate();
 app.listen(8080);

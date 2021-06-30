@@ -1,3 +1,4 @@
+const upload = require("../media/middleware/multer")
 const {
   categoryList,
   categoryCreate,
@@ -8,8 +9,8 @@ const router = express.Router();
 
 
 //Mini Express App
-router.post("/:categoryId/ingredients", ingredientCreate);
+router.post("/:categoryId/ingredients",upload.single("image"), ingredientCreate);
 router.get("/", categoryList);
-router.post("/", categoryCreate);
+router.post("/",upload.single("image"), categoryCreate);
 
 module.exports = router;
