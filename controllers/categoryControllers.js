@@ -29,6 +29,7 @@ exports.categoryCreate = async (req, res, next) => {
   }
 };
 
+
 exports.ingredientCreate = async (req, res, next) => {
   try {
     // console.log(req);
@@ -48,3 +49,5 @@ exports.ingredientCreate = async (req, res, next) => {
     next(error);
   }
 };
+
+
