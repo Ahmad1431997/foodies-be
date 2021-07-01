@@ -5,12 +5,13 @@ const { Recipe, Ingredient, RecipeIngredients,Recipe_Ingredient } = require("../
 
 exports.createRecipe = async (req, res, next) => {
   try {
-   
-    //   req.body.image =`http://localhost:8080/media/${req.file.filename}`;
-    // str.split(",").forEach(element => {
-    //     const newRecipe = await Recipe.create(req.body);
-    //     newRecipe.addIngredient(await Ingredient.findByPk(element));
-    // });
+    console.log(req.body)
+      req.body.image =`http://localhost:8080/media/${req.file.filename}`;
+     const newRecipe = await Recipe.create(req.body);
+     const addId=req.body.ingredients.split(",").forEach(async(element) => {
+      
+      await newRecipe.addIngredient(await Ingredient.findByPk(element));
+    });
    
     
     res.status(201).json(newRecipe);
